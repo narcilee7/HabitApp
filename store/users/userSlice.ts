@@ -4,12 +4,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 interface UserState {
   token: string | null;
   loading: boolean;
+  userInfo: any | null;
   error: string | null;
 }
 
 const initialState: UserState = {
   token: null,
   loading: false,
+  userInfo: null,
   error: null,
 };
 
@@ -32,6 +34,7 @@ const userSlice = createSlice({
     },
     logout(state) {
       state.token = null
+      state.userInfo = null
     },
   },
 })
