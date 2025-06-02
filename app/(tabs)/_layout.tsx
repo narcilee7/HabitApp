@@ -1,7 +1,8 @@
-import { Tabs } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
 
 export default function Layout() {
+
   return (
     <Tabs
       screenOptions={{
@@ -13,7 +14,6 @@ export default function Layout() {
           alignItems: "center",
         },
         tabBarStyle: {
-          backgroundColor: '#0F0D23',
           borderRadius: 20,
           marginHorizontal: 0,
           marginBottom: 20,
@@ -22,8 +22,6 @@ export default function Layout() {
           shadowColor: '#000',
           position: 'absolute',
           overflow: 'hidden',
-          borderWidth: 1,
-          borderColor: '#0F0D23'
         }
       }}
     >
@@ -32,13 +30,16 @@ export default function Layout() {
         options={{
           title: '打卡',
           tabBarIcon: ({ color, size }) => <Ionicons name="checkbox" size={size} color={color} />,
+          headerShown: false,
         }}
       />
       <Tabs.Screen
         name="calendar"
         options={{
           title: '日历',
-          tabBarIcon: ({ color, size }) => <Ionicons name="calendar" size={size} color={color} />,
+          tabBarIcon: ({ color, size }) => <Ionicons name="calendar" size={size} color={color}
+          />,
+          headerShown: false,
         }}
       />
       <Tabs.Screen
@@ -46,6 +47,7 @@ export default function Layout() {
         options={{
           title: '我的',
           tabBarIcon: ({ color, size }) => <Ionicons name="person" size={size} color={color} />,
+          headerShown: false,
         }}
       />
     </Tabs>

@@ -1,23 +1,19 @@
-import { configureStore, combineReducers } from "@reduxjs/toolkit";
-import createSagaMiddleware from "redux-saga";
-import habitReducer from './habits/reducers';
-import rootSaga from "./rootSaga";
+import { habitApi } from "@/services/habitApi";
+import { recordApi } from "@/services/recordApi";
+import { userApi } from "@/services/userApi";
+import { configureStore } from "@reduxjs/toolkit";
+import userSlice from "./users/userSlice";
 
-
-const sagaMiddleware = createSagaMiddleware();
-
-const rootReducer = combineReducers({
-  habit: habitReducer,
-  // future reducers...
-});
 
 export const store = configureStore({
-  reducer: rootReducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware),
-});
+  reducer: {
+    [habitApi.reducerPath]: habitApi.reducer,
+    [userApi.reducerPath]: userApi.reducer,
+    [recordApi.reducerPath]: recordApi.reducer,
+    user: userSlice,
+  }
+})
 
-sagaMiddleware.run(rootSaga);
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

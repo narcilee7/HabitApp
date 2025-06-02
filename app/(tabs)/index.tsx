@@ -19,7 +19,7 @@ export default function IndexPage() {
         contentContainerStyle={styles.list}
         renderItem={({ item }) => (
           <Link href={{
-            pathname: "/habit/[id]",
+            pathname: "/habits/[id]",
             params: { id: item.id },
           }}
             asChild
