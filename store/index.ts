@@ -11,7 +11,9 @@ export const store = configureStore({
     [userApi.reducerPath]: userApi.reducer,
     [recordApi.reducerPath]: recordApi.reducer,
     user: userSlice,
-  }
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(userApi.middleware)
 })
 
 

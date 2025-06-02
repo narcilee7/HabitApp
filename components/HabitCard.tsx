@@ -1,6 +1,6 @@
-import { Button, Text, View } from 'react-native'
-import React from 'react'
 import { Link } from 'expo-router';
+import React from 'react';
+import { Button, Text, View } from 'react-native';
 
 interface Props {
   habit: {
@@ -14,7 +14,7 @@ const HabitCard = ({ habit }: Props) => {
     <View style={{ borderWidth: 1, padding: 15, marginBottom: 10, borderRadius: 10 }}>
       <Text style={{ fontSize: 18 }}>{habit.title}</Text>
       <Link href={{
-        pathname: "/habbit/[id]",
+        pathname: "/habits/[id]",
         params: { id: habit.id },
       }}>
         <Text style={{ color: 'blue', marginTop: 5 }}>查看详情</Text>

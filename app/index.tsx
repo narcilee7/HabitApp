@@ -35,7 +35,6 @@ export default function Index() {
     );
   }
 
-  // 跳转中不渲染任何UI
   return null;
 }
 
